@@ -52,3 +52,65 @@ class Triangulares extends Sequence {
      display (30);   
    } 
  } 
+ ------------------------------------------------------------------------------
+ Triangulares sequence;
+void setup() {
+  size(800,700);
+  sequence = new Triangulares (); 
+    background(550);
+  strokeWeight(2); 
+sequence.display(30);
+String a= sequence.author();
+println (a);
+     println("N-esimo termino de los numeros triangulares");
+     sequence.compute(6);
+     println("N primeros terminos de los numeros triangulares");
+     sequence.toArray(6);
+ }
+
+void draw() {
+
+}
+---------------------------------------------------------------------
+class Triangulares extends Sequence { 
+  String author(){
+  return  "Pitágoras";   
+  } 
+   String description(){
+      return  "los números";
+  }    
+   int compute (int n){
+     println((n*(n+1))/2);
+     return n;
+   }
+   int [] toArray(int n){
+     int[] seq = new int[n];
+     for (int i=0; i<n; i++)
+      seq[i] = compute((i*(i+1))/2);
+     return seq;
+     
+   }
+   String toString(int n){
+    return Arrays.toString(toArray(n)); 
+  }   
+  void display (int n){
+    int y=685;
+    int x=15;
+    int s=n;
+    for(int i=0;i<n;i++){
+      for(int j=0;j<s;j++){
+         rectMode(CENTER); 
+         ellipse(x,y,20,20); 
+         x=x+20;              
+       }  
+       y=y-20;
+       s=s-1;
+       x=15;
+     }
+
+        
+   } 
+ } 
+
+
+ 
